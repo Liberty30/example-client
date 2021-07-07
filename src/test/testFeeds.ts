@@ -1,5 +1,5 @@
 import { keccak_256 } from "js-sha3";
-import { randInt } from "@dsnp/test-generators";
+import { randInt} from "../utilities/generators";
 import {
   ActivityPub,
   ActivityPubAttachement,

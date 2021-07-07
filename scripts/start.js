@@ -79,8 +79,8 @@ checkBrowsers(paths.appPath, isInteractive)
     const config = configFactory('development');
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
     const appName = require(paths.appPackageJson).name;
-    const useTypeScript = fs.existsSync(paths.appTsConfig);
-    const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true';
+    const useTypeScript = true;
+    const tscCompileOnError = true;
     const urls = prepareUrls(
       protocol,
       HOST,
@@ -88,10 +88,14 @@ checkBrowsers(paths.appPath, isInteractive)
       paths.publicUrlOrPath.slice(0, -1)
     );
     const devSocket = {
-      warnings: warnings =>
-        devServer.sockWrite(devServer.sockets, 'warnings', warnings),
-      errors: errors =>
-        devServer.sockWrite(devServer.sockets, 'errors', errors),
+      warnings: warnings => {
+        console.log(warnings.toString())
+        devServer.sockWrite(devServer.sockets, 'warnings', warnings)
+      },
+      errors: errors => {
+        console.log(errors.toString())
+        devServer.sockWrite(devServer.sockets, 'errors', errors)
+      }
     };
     // Create a webpack compiler that is configured with custom messages.
     const compiler = createCompiler({
@@ -126,18 +130,6 @@ checkBrowsers(paths.appPath, isInteractive)
         clearConsole();
       }
 
-      // We used to support resolving modules according to `NODE_PATH`.
-      // This now has been deprecated in favor of jsconfig/tsconfig.json
-      // This lets you use absolute paths in imports inside large monorepos:
-      if (process.env.NODE_PATH) {
-        console.log(
-          chalk.yellow(
-            'Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app.'
-          )
-        );
-        console.log();
-      }
-
       console.log(chalk.cyan('Starting the development server...\n'));
       openBrowser(urls.localUrlForBrowser);
     });
@@ -160,8 +152,6 @@ checkBrowsers(paths.appPath, isInteractive)
     console.log("DONE")
   })
   .catch(err => {
-    if (err && err.message) {
-      console.log(err.message);
-    }
+    console.log("Caught error: ", err.toString())
     process.exit(1);
   });

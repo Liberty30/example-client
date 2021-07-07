@@ -1,5 +1,5 @@
 import { HexString } from "../utilities/types";
-import { generateHexString } from "@dsnp/test-generators";
+import { generateHexString} from "../utilities/generators";
 
 /**
  * Generate a wallet address

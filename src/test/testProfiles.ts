@@ -1,4 +1,4 @@
-import { randInt } from "@dsnp/test-generators";
+import { randInt} from "../utilities/generators";
 import { Profile, HexString } from "../utilities/types";
 import {
   generateSocialAddress,

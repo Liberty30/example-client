@@ -10,7 +10,7 @@ const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
 const InlineChunkHtmlPlugin = require("react-dev-utils/InlineChunkHtmlPlugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const safePostCssParser = require("postcss-safe-parser");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
@@ -170,9 +170,7 @@ module.exports = function (webpackEnv) {
       pathinfo: isEnvDevelopment,
       // There will be one main bundle, and one file per asynchronous chunk.
       // In development, it does not produce real files.
-      filename: isEnvProduction
-        ? "static/js/[name].[contenthash:8].js"
-        : isEnvDevelopment && "static/js/bundle.js",
+      filename: "static/js/[name].[contenthash:8].js",
       // There are also additional JS chunk files if you use code splitting.
       chunkFilename: isEnvProduction
         ? "static/js/[name].[contenthash:8].chunk.js"
@@ -242,24 +240,7 @@ module.exports = function (webpackEnv) {
           },
         }),
         // This is only used in production mode
-        new OptimizeCSSAssetsPlugin({
-          cssProcessorOptions: {
-            parser: safePostCssParser,
-            map: shouldUseSourceMap
-              ? {
-                  // `inline: false` forces the sourcemap to be output into a
-                  // separate file
-                  inline: false,
-                  // `annotation: true` appends the sourceMappingURL to the end of
-                  // the css file, helping the browser find the sourcemap
-                  annotation: true,
-                }
-              : false,
-          },
-          cssProcessorPluginOptions: {
-            preset: ["default", { minifyFontValues: { removeQuotes: false } }],
-          },
-        }),
+        new CssMinimizerPlugin(),
       ],
       // Automatically split vendor and commons
       // https://twitter.com/wSokra/status/969633336732905474
@@ -313,16 +294,31 @@ module.exports = function (webpackEnv) {
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
         new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+        // new webpack.ProvidePlugin({
+        //   process: 'process/browser',
+        //   Buffer: ['buffer', 'Buffer'],
+        // }),
       ],
+      alias: {
+        assert: "assert",
+        crypto: "crypto-browserify",
+        fs: "browserfs",
+        http: "stream-http",
+        https: "https-browserify",
+        path: "path-browserify",
+        process: 'process/browser',
+        stream: "readable-stream"
+      },
       fallback: {
-        module: false,
+        child_process: false,
         dgram: false,
         dns: false,
-        fs: false,
         http2: false,
+        module: false,
         net: false,
+        os: false,
         tls: false,
-        child_process: false,
+        // parquetjs: require.resolve(path.join(__dirname,"..","node_modules","@dsnp","parquetjs","dist","browser","parquet.js")),
       }
     },
     resolveLoader: {
