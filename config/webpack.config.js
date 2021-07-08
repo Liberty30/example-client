@@ -331,8 +331,6 @@ module.exports = function (webpackEnv) {
     module: {
       strictExportPresence: true,
       rules: [
-        // Disable require.ensure as it's not a standard language feature.
-        { parser: { requireEnsure: false } },
         {
           // "oneOf" will traverse all following loaders until one will
           // match the requirements. When no loader matches it will fall
@@ -514,35 +512,17 @@ module.exports = function (webpackEnv) {
     },
     plugins: [
       // Ensures formatting
-      new ESLintPlugin({
-        formatter: require.resolve("react-dev-utils/eslintFormatter"),
-        context: paths.appSrc,
-      }),
+      // new ESLintPlugin({
+      //   formatter: require.resolve("react-dev-utils/eslintFormatter"),
+      //   context: paths.appSrc,
+      // }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
-        Object.assign(
-          {},
           {
             inject: true,
             template: paths.appHtml,
+            minify: isEnvProduction,
           },
-          isEnvProduction
-            ? {
-                minify: {
-                  removeComments: true,
-                  collapseWhitespace: true,
-                  removeRedundantAttributes: true,
-                  useShortDoctype: true,
-                  removeEmptyAttributes: true,
-                  removeStyleLinkTypeAttributes: true,
-                  keepClosingSlash: true,
-                  minifyJS: true,
-                  minifyCSS: true,
-                  minifyURLs: true,
-                },
-              }
-            : undefined
-        )
       ),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
@@ -575,8 +555,6 @@ module.exports = function (webpackEnv) {
       // to restart the development server for webpack to discover it. This plugin
       // makes the discovery automatic so you don't have to restart.
       // See https://github.com/facebook/create-react-app/issues/186
-      isEnvDevelopment &&
-        new WatchMissingNodeModulesPlugin(paths.appNodeModules),
       isEnvProduction &&
         new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
@@ -635,12 +613,12 @@ module.exports = function (webpackEnv) {
           async: isEnvDevelopment,
           useTypescriptIncrementalApi: true,
           checkSyntacticErrors: true,
-          resolveModuleNameModule: process.versions.pnp
-            ? `${__dirname}/pnpTs.js`
-            : undefined,
-          resolveTypeReferenceDirectiveModule: process.versions.pnp
-            ? `${__dirname}/pnpTs.js`
-            : undefined,
+          // resolveModuleNameModule: process.versions.pnp
+          //   ? `${__dirname}/pnpTs.js`
+          //   : undefined,
+          // resolveTypeReferenceDirectiveModule: process.versions.pnp
+          //   ? `${__dirname}/pnpTs.js`
+          //   : undefined,
           tsconfig: paths.appTsConfig,
           reportFiles: [
             "**",

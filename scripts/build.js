@@ -161,10 +161,7 @@ function build(previousFileSizes) {
             err["postcssNode"].selector;
         }
 
-        messages = formatWebpackMessages({
-          errors: [errMessage],
-          warnings: []
-        });
+        messages = formatWebpackMessages(errMessage);
       } else {
         messages = formatWebpackMessages(
           stats.toJson({ all: false, warnings: true, errors: true })
