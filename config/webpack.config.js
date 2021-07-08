@@ -49,7 +49,6 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
-const lessRegex = /\.less$/;
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -273,17 +272,6 @@ module.exports = function (webpackEnv) {
       extensions: paths.moduleFileExtensions
         .map((ext) => `.${ext}`)
         .filter((ext) => useTypeScript || !ext.includes("ts")),
-      // alias: {
-      //   // Support React Native Web
-      //   // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      //   "react-native": "react-native-web",
-      //   // Allows for better profiling with ReactDevTools
-      //   ...(isEnvProductionProfile && {
-      //     "react-dom$": "react-dom/profiling",
-      //     "scheduler/tracing": "scheduler/tracing-profiling",
-      //   }),
-      //   ...(modules.webpackAliases || {}),
-      // },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
         // guards against forgotten dependencies and such.
@@ -294,10 +282,9 @@ module.exports = function (webpackEnv) {
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
         new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-        // new webpack.ProvidePlugin({
-        //   process: 'process/browser',
-        //   Buffer: ['buffer', 'Buffer'],
-        // }),
+        new webpack.ProvidePlugin({
+          Buffer: ['buffer', 'Buffer'],
+        }),
       ],
       alias: {
         assert: "assert",
@@ -308,6 +295,7 @@ module.exports = function (webpackEnv) {
         path: "path-browserify",
         process: 'process/browser',
         stream: "readable-stream"
+        // "react-native": "react-native-web",
       },
       fallback: {
         child_process: false,
@@ -318,7 +306,8 @@ module.exports = function (webpackEnv) {
         net: false,
         os: false,
         tls: false,
-        // parquetjs: require.resolve(path.join(__dirname,"..","node_modules","@dsnp","parquetjs","dist","browser","parquet.js")),
+        // parquetjs:
+        // require.resolve(path.join(__dirname,"..","node_modules","@dsnp","parquetjs","dist","browser","parquet.js")),
       }
     },
     resolveLoader: {
@@ -341,7 +330,10 @@ module.exports = function (webpackEnv) {
             // A missing `test` is equivalent to a match.
             {
               test: /\.(gif|jpg|jpeg|png)$/,
-              type: 'asset/resource',
+              use: {
+                loader: 'url-loader',
+                options: {limit: imageInlineSizeLimit}
+              }
             },
             // Process application JS with Babel.
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
@@ -436,27 +428,6 @@ module.exports = function (webpackEnv) {
                 },
               }),
             },
-            {
-              test: lessRegex,
-              use: getStyleLoaders(
-                {
-                  importLoaders: 3,
-                  sourceMap: isEnvProduction && shouldUseSourceMap,
-                },
-                "less-loader",
-                {
-                  lessOptions: {
-                    modifyVars: antdTheme,
-                    javascriptEnabled: true,
-                  },
-                }
-              ),
-              // Don't consider CSS imports dead code even if the
-              // containing package claims to have no side effects.
-              // Remove this when webpack adds a warning or an error for this.
-              // See https://github.com/webpack/webpack/issues/6571
-              sideEffects: true,
-            },
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the
             // extensions .module.scss or .module.sass
@@ -491,21 +462,19 @@ module.exports = function (webpackEnv) {
                 "sass-loader"
               ),
             },
-            // "file" loader makes sure those assets get served by WebpackDevServer.
-            // When you `import` an asset, you get its (virtual) filename.
-            // In production, they would get copied to the `build` folder.
-            // This loader doesn't use a "test" so it will catch all modules
-            // that fall through the other loaders.
             {
               // Exclude `js` files to keep "css" loader working as it injects
               // its runtime that would otherwise be processed through "file" loader.
               // Also exclude `html` and `json` extensions so they get processed
               // by webpacks internal loaders.
-              exclude: /\.(js|mjs|jsx|ts|tsx|html|json)$/,
-              type: 'asset/resource'
+              exclude: /\.(js|mjs|jsx|ts|tsx|html|json)$/i,
+              use: {
+                loader: 'file-loader',
+                options: {
+                  name: "static/media/[name].[contenthash:8].[ext]",
+                },
+              }
             },
-            // ** STOP ** Are you adding a new loader?
-            // Make sure to add the new loader(s) before the "file" loader.
           ],
         },
       ],
@@ -589,48 +558,48 @@ module.exports = function (webpackEnv) {
       // Generate a service worker script that will precache, and keep up to date,
       // the HTML & assets that are part of the webpack build.
       isEnvProduction &&
-        new WorkboxWebpackPlugin.GenerateSW({
-          clientsClaim: true,
-          exclude: [/\.map$/, /asset-manifest\.json$/],
-          maximumFileSizeToCacheInBytes: 3097152,
-          navigateFallback: paths.publicUrlOrPath + "index.html",
-          navigateFallbackDenylist: [
-            // Exclude URLs starting with /_, as they're likely an API call
-            new RegExp("^/_"),
-            // Exclude any URLs whose last part seems to be a file extension
-            // as they're likely a resource and not a SPA route.
-            // URLs containing a "?" character won't be blacklisted as they're likely
-            // a route with query params (e.g. auth callbacks).
-            new RegExp("/[^/?]+\\.[^/]+$"),
-          ],
-        }),
+      new WorkboxWebpackPlugin.GenerateSW({
+        clientsClaim: true,
+        exclude: [/\.map$/, /asset-manifest\.json$/],
+        maximumFileSizeToCacheInBytes: 3097152,
+        navigateFallback: paths.publicUrlOrPath + "index.html",
+        navigateFallbackDenylist: [
+          // Exclude URLs starting with /_, as they're likely an API call
+          new RegExp("^/_"),
+          // Exclude any URLs whose last part seems to be a file extension
+          // as they're likely a resource and not a SPA route.
+          // URLs containing a "?" character won't be blacklisted as they're likely
+          // a route with query params (e.g. auth callbacks).
+          new RegExp("/[^/?]+\\.[^/]+$"),
+        ],
+      }),
       // TypeScript type checking
       useTypeScript &&
-        new ForkTsCheckerWebpackPlugin({
-          typescript: resolve.sync("typescript", {
-            basedir: paths.appNodeModules,
-          }),
-          async: isEnvDevelopment,
-          useTypescriptIncrementalApi: true,
-          checkSyntacticErrors: true,
-          // resolveModuleNameModule: process.versions.pnp
-          //   ? `${__dirname}/pnpTs.js`
-          //   : undefined,
-          // resolveTypeReferenceDirectiveModule: process.versions.pnp
-          //   ? `${__dirname}/pnpTs.js`
-          //   : undefined,
-          tsconfig: paths.appTsConfig,
-          reportFiles: [
-            "**",
-            "!**/__tests__/**",
-            "!**/?(*.)(spec|test).*",
-            "!**/src/setupProxy.*",
-            "!**/src/setupTests.*",
-          ],
-          silent: true,
-          // The formatter is invoked directly in WebpackDevServerUtils during development
-          formatter: isEnvProduction ? typescriptFormatter : undefined,
+      new ForkTsCheckerWebpackPlugin({
+        typescript: resolve.sync("typescript", {
+          basedir: paths.appNodeModules,
         }),
+        async: isEnvDevelopment,
+        useTypescriptIncrementalApi: true,
+        checkSyntacticErrors: true,
+        // resolveModuleNameModule: process.versions.pnp
+        //   ? `${__dirname}/pnpTs.js`
+        //   : undefined,
+        // resolveTypeReferenceDirectiveModule: process.versions.pnp
+        //   ? `${__dirname}/pnpTs.js`
+        //   : undefined,
+        tsconfig: paths.appTsConfig,
+        reportFiles: [
+          "**",
+          "!**/__tests__/**",
+          "!**/?(*.)(spec|test).*",
+          "!**/src/setupProxy.*",
+          "!**/src/setupTests.*",
+        ],
+        silent: true,
+        // The formatter is invoked directly in WebpackDevServerUtils during development
+        formatter: isEnvProduction ? typescriptFormatter : undefined,
+      }),
     ].filter(Boolean),
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
