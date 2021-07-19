@@ -24,12 +24,12 @@ export type NoteAttachment = {
 };
 
 // ## Feed ##
-export interface FeedItem {
+export interface FeedItem<T extends ActivityPubBase> {
   fromAddress: HexString;
-  content: ActivityPub;
+  content: T;
   replies?: FeedItem[];
   blockNumber: number;
-  hash?: HexString;
+  hash: HexString;
   inbox?: boolean;
   timestamp: number;
   topic?: HexString;

@@ -1,5 +1,5 @@
 import {
-  ActivityPub,
+  NoteActivityPub,
   ActivityPubAttachment,
   PubType,
 } from "./activityPubTypes";
@@ -10,8 +10,8 @@ export const noteToActivityPub = (
   actor: HexString,
   note: string,
   uriList: string[]
-): ActivityPub => {
-  const activityPub: ActivityPub = {
+): NoteActivityPub => {
+  const activityPub: NoteActivityPub = {
     actor,
     "@context": "https://www.w3.org/ns/activitystreams",
     type: "Note",
@@ -53,4 +53,18 @@ export const noteToActivityPub = (
     );
   }
   return activityPub;
+};
+
+export const postReplyToActivityPub = (
+  actor: HexString,
+  reply: string,
+  parent: HexString
+): NoteActivityPub => {
+  return {
+    "@context": "https://www.w3.org/ns/activitystreams",
+    actor,
+    type: "Note",
+    content: reply,
+    inReplyTo: parent,
+  };
 };

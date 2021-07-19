@@ -5,10 +5,10 @@ import { NoteActivityPub } from "../utilities/activityPubTypes";
 import UserAvatar from "./UserAvatar";
 import PostMedia from "./PostMedia";
 import RelativeTime from "./RelativeTime";
-import PostReply from "./PostReply";
+import ReplyBlock from "./ReplyBlock";
 
 interface PostProps {
-  feedItem: FeedItem;
+  feedItem: FeedItem<NoteActivityPub>;
 }
 
 const Post = ({ feedItem }: PostProps): JSX.Element => {
@@ -35,7 +35,7 @@ const Post = ({ feedItem }: PostProps): JSX.Element => {
           )}
         </>
       )}
-      <PostReply />
+      <ReplyBlock parent={feedItem.hash} />
     </Card>
   );
 };

@@ -95,8 +95,8 @@ export const generatePerson = (
 export const generateFeedItem = (
   content: ActivityPub,
   constTime: boolean = false,
-  replies?: FeedItem[]
-): FeedItem => {
+  replies?: FeedItem<ActivityPub>[]
+): FeedItem<ActivityPub> => {
   return {
     timestamp: constTime ? 1608580122 : Math.round(Date.now() / 1000),
     inbox: false,
@@ -115,7 +115,7 @@ export const generateFeedItem = (
  * A prefabricated feed with at least one of every
  * important functionality currently available
  */
-export const getPrefabFeed = (): FeedItem[] => {
+export const getPrefabFeed = (): FeedItem<ActivityPub>[] => {
   const address0 = getPrefabSocialAddress(0);
   const address1 = getPrefabSocialAddress(1);
   const address2 = getPrefabSocialAddress(2);
@@ -130,9 +130,7 @@ export const getPrefabFeed = (): FeedItem[] => {
     // FeedItem note with replies
     generateFeedItem(generateNote(address0, "Hello World"), true, [
       generateFeedItem(generateNote(address1, "Hi Monday!"), true),
-      generateFeedItem(generateNote(address2, "Go away"), true, [
-        generateFeedItem(generateNote(address0, "You're mean"), true),
-      ]),
+      generateFeedItem(generateNote(address2, "Go away"), true),
     ]),
     // FeedItem that is a profile update
     generateFeedItem(
@@ -177,8 +175,10 @@ export const generateRandomPerson = (): PersonActivityPub => {
  * Generate random replies Array. Only generates depth 0 random replies
  * @param avgReplies the average number of replies
  */
-export const generateRandomReplies = (avgReplies: number): FeedItem[] => {
-  const replies: FeedItem[] = [];
+export const generateRandomReplies = (
+  avgReplies: number
+): FeedItem<ActivityPub>[] => {
+  const replies: FeedItem<ActivityPub>[] = [];
   const numReplies = randInt(avgReplies * 2 + 1);
   for (let r = 0; r < numReplies; r++) {
     replies[r] = generateFeedItem(generateRandomNote());
@@ -194,8 +194,8 @@ export const generateRandomReplies = (avgReplies: number): FeedItem[] => {
 export const generateRandomFeed = (
   size: number = 4,
   avgReplies: number = 0
-): FeedItem[] => {
-  const feed: FeedItem[] = [];
+): FeedItem<ActivityPub>[] => {
+  const feed: FeedItem<ActivityPub>[] = [];
   // For each feed item we need to generate:
   // 1 - Content
   // 2 - Replies if Note

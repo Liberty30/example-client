@@ -50,7 +50,7 @@ export const getProfile = async (
   return profile;
 };
 
-export const sendPost = async (post: FeedItem): Promise<void> => {
+export const sendPost = async (post: FeedItem<ActivityPub>): Promise<void> => {
   if (!post.content) return;
 
   const hash = await storeActivityPub(post.content);

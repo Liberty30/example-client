@@ -2,6 +2,7 @@ import React from "react";
 import Post from "./Post";
 import { FeedItem, Graph, Profile } from "../utilities/types";
 import { useAppSelector } from "../redux/hooks";
+import { NoteActivityPub } from "../utilities/activityPubTypes";
 
 enum FeedTypes {
   FEED,
@@ -21,10 +22,10 @@ const PostList = ({ feedType }: PostListProps): JSX.Element => {
   const myGraph: Graph | undefined = graph.find(
     (graph) => graph.socialAddress === profile?.socialAddress
   );
-  const feed: FeedItem[] = useAppSelector((state) => state.feed.feed).filter(
+  const feed: FeedItem<NoteActivityPub>[] = useAppSelector((state) => state.feed.feed).filter(
     (post) => post?.content?.type === "Note"
   );
-  let currentFeed: FeedItem[] = [];
+  let currentFeed: FeedItem<NoteActivityPub>[] = [];
 
   if (feedType === FeedTypes.FEED) {
     currentFeed = feed.filter((post) => {

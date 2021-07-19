@@ -1,6 +1,8 @@
-import { noteToActivityPub } from "../utilities/activityPub";
+import {
+  noteToActivityPub,
+  postReplyToActivityPub,
+} from "../utilities/activityPub";
 import { FeedItem, HexString } from "../utilities/types";
-import { ActivityPub } from "../utilities/activityPubTypes";
 import {
   Content,
   WriteStreamCallback,
@@ -8,19 +10,25 @@ import {
   StoreInterface,
 } from "@dsnp/sdk/core/store";
 import { isFunction, isUint8Array } from "./utilities";
+import { NoteActivityPub } from "../utilities/activityPubTypes";
 
 export const createNote = async (
   actor: HexString,
   note: string,
   uriList: string[]
-): Promise<FeedItem> => {
+): Promise<FeedItem<NoteActivityPub>> => {
   // send content to api
-  const activityPubNote: ActivityPub = noteToActivityPub(actor, note, uriList);
-  const newPostFeedItem: FeedItem = {
+  const activityPubNote: NoteActivityPub = noteToActivityPub(
+    actor,
+    note,
+    uriList
+  );
+  const newPostFeedItem: FeedItem<NoteActivityPub> = {
     fromAddress: actor,
     content: activityPubNote,
     blockNumber: 0x123,
     timestamp: Math.floor(Math.random() * 999999),
+    hash: "0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7",
   };
   return newPostFeedItem;
 };
@@ -113,3 +121,19 @@ class ServerWriteStream implements WriteStream {
     });
   }
 }
+
+export const storeReply = async (
+  actor: HexString,
+  reply: string,
+  parent: HexString
+): Promise<FeedItem<NoteActivityPub>> => {
+  const activityPubReply = postReplyToActivityPub(actor, reply, parent);
+  const newReplyFeedItem: FeedItem<NoteActivityPub> = {
+    fromAddress: actor,
+    content: activityPubReply,
+    blockNumber: 0x1234,
+    timestamp: Math.floor(Math.random() * 999999),
+    hash: "0x12305A3A3b2A69De6Dbf7f01ED13B2108B2c43e7",
+  };
+  return newReplyFeedItem;
+};
