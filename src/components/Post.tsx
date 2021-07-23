@@ -1,14 +1,14 @@
 import React from "react";
 import { Card } from "antd";
 import { FeedItem } from "../utilities/types";
-import { NoteActivityPub } from "../utilities/activityPubTypes";
+import { ActivityPub, NoteActivityPub } from "../utilities/activityPubTypes";
 import UserAvatar from "./UserAvatar";
 import PostMedia from "./PostMedia";
 import RelativeTime from "./RelativeTime";
 import ReplyBlock from "./ReplyBlock";
 
 interface PostProps {
-  feedItem: FeedItem<NoteActivityPub>;
+  feedItem: FeedItem<ActivityPub>;
 }
 
 const Post = ({ feedItem }: PostProps): JSX.Element => {

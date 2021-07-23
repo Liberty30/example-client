@@ -1,16 +1,15 @@
 import { Input } from "antd";
 import React, { useState } from "react";
 import { storeReply } from "../services/Storage";
-import { addFeedItem } from "../redux/slices/feedSlice";
+import { sendReply } from "../services/sdk";
 import { HexString } from "../utilities/types";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { useAppSelector } from "../redux/hooks";
 
 interface ReplyInputProps {
   parent: HexString;
 }
 
 const ReplyInput = ({ parent }: ReplyInputProps): JSX.Element => {
-  const dispatch = useAppDispatch();
   const profile = useAppSelector((state) => state.user.profile);
   const [saving, setSaving] = React.useState<boolean>(false);
   const [replyValue, setReplyValue] = useState<string>("");
@@ -26,8 +25,7 @@ const ReplyInput = ({ parent }: ReplyInputProps): JSX.Element => {
       replyValue,
       parent
     );
-    dispatch(addFeedItem(newReplyFeedItem));
-    // await sendPost(newReplyFeedItem);
+    await sendReply(newReplyFeedItem);
     setReplyValue("");
     setSaving(false);
   };

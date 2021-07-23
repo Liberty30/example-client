@@ -433,94 +433,100 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                           </div>
                         </ForwardRef>
                       </PostMedia>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
@@ -575,27 +581,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                         "hash": "04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d",
                         "inbox": false,
                         "rawContent": "",
-                        "replies": Array [
-                          Object {
-                            "blockNumber": 50,
-                            "content": Object {
-                              "@context": "https://www.w3.org/ns/activitystreams",
-                              "actor": "0x1DCODE0000",
-                              "attachment": Array [],
-                              "content": "You're mean",
-                              "id": "http://localhost:3003/api/announce/0x1DCODE0000",
-                              "type": "Note",
-                            },
-                            "fromAddress": "0x1DCODE0000",
-                            "hash": "04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d",
-                            "inbox": false,
-                            "rawContent": "",
-                            "replies": Array [],
-                            "timestamp": 1608580122,
-                            "topic": "0xb4fc0e356691332d9ea3819c239aef5980ce60784568183bd2a540a9b9a6712c",
-                            "uri": "http://localhost:3003/api/announce/0x1DCODE0000",
-                          },
-                        ],
+                        "replies": Array [],
                         "timestamp": 1608580122,
                         "topic": "0xb4fc0e356691332d9ea3819c239aef5980ce60784568183bd2a540a9b9a6712c",
                         "uri": "http://localhost:3003/api/announce/0x1DCODE2222",
@@ -701,94 +687,100 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                       >
                         Hello World
                       </div>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
@@ -910,94 +902,100 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                       >
                         Going to the mall!
                       </div>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
@@ -1119,94 +1117,100 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                       >
                         My favorite dessert is Cake
                       </div>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
@@ -1385,27 +1389,7 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                         "hash": "04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d",
                         "inbox": false,
                         "rawContent": "",
-                        "replies": Array [
-                          Object {
-                            "blockNumber": 50,
-                            "content": Object {
-                              "@context": "https://www.w3.org/ns/activitystreams",
-                              "actor": "0x1DCODE0000",
-                              "attachment": Array [],
-                              "content": "You're mean",
-                              "id": "http://localhost:3003/api/announce/0x1DCODE0000",
-                              "type": "Note",
-                            },
-                            "fromAddress": "0x1DCODE0000",
-                            "hash": "04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d",
-                            "inbox": false,
-                            "rawContent": "",
-                            "replies": Array [],
-                            "timestamp": 1608580122,
-                            "topic": "0xb4fc0e356691332d9ea3819c239aef5980ce60784568183bd2a540a9b9a6712c",
-                            "uri": "http://localhost:3003/api/announce/0x1DCODE0000",
-                          },
-                        ],
+                        "replies": Array [],
                         "timestamp": 1608580122,
                         "topic": "0xb4fc0e356691332d9ea3819c239aef5980ce60784568183bd2a540a9b9a6712c",
                         "uri": "http://localhost:3003/api/announce/0x1DCODE2222",
@@ -1511,94 +1495,100 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                       >
                         Hello World
                       </div>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
@@ -1720,94 +1710,100 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                       >
                         Going to the mall!
                       </div>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
@@ -1986,27 +1982,7 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                         "hash": "04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d",
                         "inbox": false,
                         "rawContent": "",
-                        "replies": Array [
-                          Object {
-                            "blockNumber": 50,
-                            "content": Object {
-                              "@context": "https://www.w3.org/ns/activitystreams",
-                              "actor": "0x1DCODE0000",
-                              "attachment": Array [],
-                              "content": "You're mean",
-                              "id": "http://localhost:3003/api/announce/0x1DCODE0000",
-                              "type": "Note",
-                            },
-                            "fromAddress": "0x1DCODE0000",
-                            "hash": "04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d",
-                            "inbox": false,
-                            "rawContent": "",
-                            "replies": Array [],
-                            "timestamp": 1608580122,
-                            "topic": "0xb4fc0e356691332d9ea3819c239aef5980ce60784568183bd2a540a9b9a6712c",
-                            "uri": "http://localhost:3003/api/announce/0x1DCODE0000",
-                          },
-                        ],
+                        "replies": Array [],
                         "timestamp": 1608580122,
                         "topic": "0xb4fc0e356691332d9ea3819c239aef5980ce60784568183bd2a540a9b9a6712c",
                         "uri": "http://localhost:3003/api/announce/0x1DCODE2222",
@@ -2112,94 +2088,100 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                       >
                         Hello World
                       </div>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
@@ -2321,94 +2303,100 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                       >
                         Going to the mall!
                       </div>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
@@ -2587,27 +2575,7 @@ exports[`Feed does display new post button when logged in 1`] = `
                         "hash": "04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d",
                         "inbox": false,
                         "rawContent": "",
-                        "replies": Array [
-                          Object {
-                            "blockNumber": 50,
-                            "content": Object {
-                              "@context": "https://www.w3.org/ns/activitystreams",
-                              "actor": "0x1DCODE0000",
-                              "attachment": Array [],
-                              "content": "You're mean",
-                              "id": "http://localhost:3003/api/announce/0x1DCODE0000",
-                              "type": "Note",
-                            },
-                            "fromAddress": "0x1DCODE0000",
-                            "hash": "04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d",
-                            "inbox": false,
-                            "rawContent": "",
-                            "replies": Array [],
-                            "timestamp": 1608580122,
-                            "topic": "0xb4fc0e356691332d9ea3819c239aef5980ce60784568183bd2a540a9b9a6712c",
-                            "uri": "http://localhost:3003/api/announce/0x1DCODE0000",
-                          },
-                        ],
+                        "replies": Array [],
                         "timestamp": 1608580122,
                         "topic": "0xb4fc0e356691332d9ea3819c239aef5980ce60784568183bd2a540a9b9a6712c",
                         "uri": "http://localhost:3003/api/announce/0x1DCODE2222",
@@ -2713,94 +2681,100 @@ exports[`Feed does display new post button when logged in 1`] = `
                       >
                         Hello World
                       </div>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
@@ -2922,94 +2896,100 @@ exports[`Feed does display new post button when logged in 1`] = `
                       >
                         Going to the mall!
                       </div>
-                      <PostReply>
-                        <div
-                          className="PostReply__block"
+                      <ReplyBlock
+                        parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
+                      >
+                        <ReplyInput
+                          parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
-                          <ForwardRef
-                            autoSize={true}
-                            className="PostReply__input"
-                            onChange={[Function]}
-                            onPressEnter={[Function]}
-                            placeholder="Reply..."
-                            value=""
+                          <div
+                            className="ReplyBlock__newReplyBlock"
                           >
-                            <ClearableLabeledInput
+                            <ForwardRef
                               autoSize={true}
-                              bordered={true}
-                              element={
-                                <TextArea
-                                  autoSize={true}
-                                  className="PostReply__input"
-                                  onChange={[Function]}
-                                  onCompositionEnd={[Function]}
-                                  onCompositionStart={[Function]}
-                                  onPressEnter={[Function]}
-                                  placeholder="Reply..."
-                                  prefixCls="ant-input"
-                                  value=""
-                                />
-                              }
-                              handleReset={[Function]}
-                              inputType="text"
+                              className="ReplyBlock__input"
+                              onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
-                              prefixCls="ant-input"
                               value=""
                             >
-                              <TextArea
+                              <ClearableLabeledInput
                                 autoSize={true}
-                                className="PostReply__input"
-                                onChange={[Function]}
-                                onCompositionEnd={[Function]}
-                                onCompositionStart={[Function]}
+                                bordered={true}
+                                element={
+                                  <TextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
+                                  />
+                                }
+                                handleReset={[Function]}
+                                inputType="text"
                                 onPressEnter={[Function]}
                                 placeholder="Reply..."
                                 prefixCls="ant-input"
                                 value=""
                               >
-                                <ResizableTextArea
+                                <TextArea
                                   autoSize={true}
-                                  className="PostReply__input"
+                                  className="ReplyBlock__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
-                                  onKeyDown={[Function]}
                                   onPressEnter={[Function]}
                                   placeholder="Reply..."
                                   prefixCls="ant-input"
                                   value=""
                                 >
-                                  <ResizeObserver
-                                    disabled={false}
-                                    onResize={[Function]}
+                                  <ResizableTextArea
+                                    autoSize={true}
+                                    className="ReplyBlock__input"
+                                    onChange={[Function]}
+                                    onCompositionEnd={[Function]}
+                                    onCompositionStart={[Function]}
+                                    onKeyDown={[Function]}
+                                    onPressEnter={[Function]}
+                                    placeholder="Reply..."
+                                    prefixCls="ant-input"
+                                    value=""
                                   >
-                                    <textarea
-                                      className="ant-input PostReply__input"
-                                      onChange={[Function]}
-                                      onCompositionEnd={[Function]}
-                                      onCompositionStart={[Function]}
-                                      onKeyDown={[Function]}
-                                      placeholder="Reply..."
-                                      style={
-                                        Object {
-                                          "height": 0,
-                                          "maxHeight": 9007199254740991,
-                                          "minHeight": -9007199254740991,
-                                          "overflowX": "hidden",
-                                          "overflowY": "hidden",
-                                          "resize": "none",
+                                    <ResizeObserver
+                                      disabled={false}
+                                      onResize={[Function]}
+                                    >
+                                      <textarea
+                                        className="ant-input ReplyBlock__input"
+                                        onChange={[Function]}
+                                        onCompositionEnd={[Function]}
+                                        onCompositionStart={[Function]}
+                                        onKeyDown={[Function]}
+                                        placeholder="Reply..."
+                                        style={
+                                          Object {
+                                            "height": 0,
+                                            "maxHeight": 9007199254740991,
+                                            "minHeight": -9007199254740991,
+                                            "overflowX": "hidden",
+                                            "overflowY": "hidden",
+                                            "resize": "none",
+                                          }
                                         }
-                                      }
-                                      value=""
-                                    />
-                                  </ResizeObserver>
-                                </ResizableTextArea>
-                              </TextArea>
-                            </ClearableLabeledInput>
-                          </ForwardRef>
-                        </div>
-                      </PostReply>
+                                        value=""
+                                      />
+                                    </ResizeObserver>
+                                  </ResizableTextArea>
+                                </TextArea>
+                              </ClearableLabeledInput>
+                            </ForwardRef>
+                          </div>
+                        </ReplyInput>
+                      </ReplyBlock>
                     </div>
                   </div>
                 </Card>
