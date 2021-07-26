@@ -440,11 +440,11 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -456,7 +456,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -475,7 +475,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -486,7 +486,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -501,7 +501,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}
@@ -694,11 +694,11 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -710,7 +710,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -729,7 +729,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -740,7 +740,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -755,7 +755,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}
@@ -909,11 +909,11 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -925,7 +925,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -944,7 +944,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -955,7 +955,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -970,7 +970,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}
@@ -1124,11 +1124,11 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -1140,7 +1140,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -1159,7 +1159,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -1170,7 +1170,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -1185,7 +1185,7 @@ exports[`Feed Displays Correct Feed All Posts 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}
@@ -1502,11 +1502,11 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -1518,7 +1518,7 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -1537,7 +1537,7 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -1548,7 +1548,7 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -1563,7 +1563,7 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}
@@ -1717,11 +1717,11 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -1733,7 +1733,7 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -1752,7 +1752,7 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -1763,7 +1763,7 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -1778,7 +1778,7 @@ exports[`Feed Displays Correct Feed Connections Feed 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}
@@ -2095,11 +2095,11 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -2111,7 +2111,7 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -2130,7 +2130,7 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -2141,7 +2141,7 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -2156,7 +2156,7 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}
@@ -2310,11 +2310,11 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -2326,7 +2326,7 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -2345,7 +2345,7 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -2356,7 +2356,7 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -2371,7 +2371,7 @@ exports[`Feed Displays Correct Feed My Feed 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}
@@ -2688,11 +2688,11 @@ exports[`Feed does display new post button when logged in 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -2704,7 +2704,7 @@ exports[`Feed does display new post button when logged in 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -2723,7 +2723,7 @@ exports[`Feed does display new post button when logged in 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -2734,7 +2734,7 @@ exports[`Feed does display new post button when logged in 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -2749,7 +2749,7 @@ exports[`Feed does display new post button when logged in 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}
@@ -2903,11 +2903,11 @@ exports[`Feed does display new post button when logged in 1`] = `
                           parent="04cc38a7a1ac3a1aa34abde4ca8bf118a2dd5885ce37c07cbffb615f3d872f4d"
                         >
                           <div
-                            className="ReplyBlock__newReplyBlock"
+                            className="ReplyInput__newReplyBlock"
                           >
                             <ForwardRef
                               autoSize={true}
-                              className="ReplyBlock__input"
+                              className="ReplyInput__input"
                               onChange={[Function]}
                               onPressEnter={[Function]}
                               placeholder="Reply..."
@@ -2919,7 +2919,7 @@ exports[`Feed does display new post button when logged in 1`] = `
                                 element={
                                   <TextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -2938,7 +2938,7 @@ exports[`Feed does display new post button when logged in 1`] = `
                               >
                                 <TextArea
                                   autoSize={true}
-                                  className="ReplyBlock__input"
+                                  className="ReplyInput__input"
                                   onChange={[Function]}
                                   onCompositionEnd={[Function]}
                                   onCompositionStart={[Function]}
@@ -2949,7 +2949,7 @@ exports[`Feed does display new post button when logged in 1`] = `
                                 >
                                   <ResizableTextArea
                                     autoSize={true}
-                                    className="ReplyBlock__input"
+                                    className="ReplyInput__input"
                                     onChange={[Function]}
                                     onCompositionEnd={[Function]}
                                     onCompositionStart={[Function]}
@@ -2964,7 +2964,7 @@ exports[`Feed does display new post button when logged in 1`] = `
                                       onResize={[Function]}
                                     >
                                       <textarea
-                                        className="ant-input ReplyBlock__input"
+                                        className="ant-input ReplyInput__input"
                                         onChange={[Function]}
                                         onCompositionEnd={[Function]}
                                         onCompositionStart={[Function]}

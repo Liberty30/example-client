@@ -33,6 +33,22 @@ export const createNote = async (
   return newPostFeedItem;
 };
 
+export const storeReply = async (
+  actor: HexString,
+  reply: string,
+  parent: HexString
+): Promise<FeedItem<NoteActivityPub>> => {
+  const activityPubReply = postReplyToActivityPub(actor, reply, parent);
+  const newReplyFeedItem: FeedItem<NoteActivityPub> = {
+    fromAddress: actor,
+    content: activityPubReply,
+    blockNumber: 0x1234,
+    timestamp: Math.floor(Math.random() * 999999),
+    hash: "0x12305A3A3b2A69De6Dbf7f01ED13B2108B2c43e7",
+  };
+  return newReplyFeedItem;
+};
+
 export class Store implements StoreInterface {
   put(targetPath: string, _content: Content): Promise<URL> {
     return Promise.resolve(
@@ -121,19 +137,3 @@ class ServerWriteStream implements WriteStream {
     });
   }
 }
-
-export const storeReply = async (
-  actor: HexString,
-  reply: string,
-  parent: HexString
-): Promise<FeedItem<NoteActivityPub>> => {
-  const activityPubReply = postReplyToActivityPub(actor, reply, parent);
-  const newReplyFeedItem: FeedItem<NoteActivityPub> = {
-    fromAddress: actor,
-    content: activityPubReply,
-    blockNumber: 0x1234,
-    timestamp: Math.floor(Math.random() * 999999),
-    hash: "0x12305A3A3b2A69De6Dbf7f01ED13B2108B2c43e7",
-  };
-  return newReplyFeedItem;
-};

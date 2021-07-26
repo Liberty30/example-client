@@ -26,14 +26,16 @@ const ReplyInput = ({ parent }: ReplyInputProps): JSX.Element => {
       parent
     );
     await sendReply(newReplyFeedItem);
+    console.log(replyValue);
     setReplyValue("");
+    console.log(replyValue);
     setSaving(false);
   };
 
   return (
-    <div className="ReplyBlock__newReplyBlock">
+    <div className="ReplyInput__newReplyBlock">
       <Input.TextArea
-        className="ReplyBlock__input"
+        className="ReplyInput__input"
         placeholder="Reply..."
         value={replyValue}
         onChange={(e) => {
