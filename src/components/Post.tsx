@@ -1,13 +1,10 @@
 import React from "react";
 import { Card } from "antd";
-import { FeedItem, HexString, Profile } from "../utilities/types";
+import { FeedItem } from "../utilities/types";
 import UserAvatar from "./UserAvatar";
 import PostMedia from "./PostMedia";
-import RelativeTime from "./RelativeTime";
-import ReplyBlock from "./ReplyBlock";
-import { ActivityContentImage } from "@dsnp/sdk/core/activityContent";
-import { FromTitle } from "./FromTitle";
-import { useAppSelector } from "../redux/hooks";
+import { ActivityContentAttachment} from "@dsnp/sdk/core/activityContent";
+import ActionsBar from "./ActionsBar";
 
 interface PostProps {
   feedItem: FeedItem;
@@ -15,34 +12,37 @@ interface PostProps {
 
 const Post = ({ feedItem }: PostProps): JSX.Element => {
   const noteContent = feedItem.content;
-  const attachments = noteContent.attachment;
-
-  const profiles: Record<HexString, Profile> = useAppSelector(
-    (state) => state.profiles?.profiles || {}
-  );
-
-  const profile: Profile = profiles[feedItem.fromId] || {
-    fromId: feedItem.fromId,
-  };
+  const attachments =
+    noteContent.attachment &&
+    (Array.isArray(noteContent.attachment)
+      ? noteContent.attachment
+      : [noteContent.attachment]);
 
   return (
-    <Card key={noteContent.hash} className="Post__block" bordered={false}>
+    <Card key={feedItem.hash} className="Post__block" bordered={false}>
       <Card.Meta
+        className="Post__header"
         avatar={
-          <UserAvatar profileAddress={feedItem.fromId} avatarSize={"medium"} />
+          <UserAvatar
+            profileAddress={feedItem.fromAddress}
+            avatarSize={"medium"}
+          />
         }
-        title={<FromTitle profile={profile} />}
+        title={feedItem.fromAddress}
         description={
-          noteContent.published && (
-            <RelativeTime published={noteContent.published} postStyle={true} />
-          )
+          <div className="Post__description">
+            @mockHandle__{feedItem.fromAddress}
+          </div>
         }
       />
-      <div className="Post__caption">{noteContent.content}</div>
-      {attachments && (
-        <PostMedia attachment={attachments as ActivityContentImage[]} />
-      )}
-      <ReplyBlock parent={feedItem.hash} />
+      <PostMedia attachment={attachments as ActivityContentAttachment[]} />
+      <div className="Post__caption">
+        <ActionsBar timestamp={feedItem.timestamp} />
+        <div>{noteContent.content}</div>
+        <div className="Post__captionTags">
+          {feedItem.tags && feedItem.tags[0]}
+        </div>
+      </div>
     </Card>
   );
 };

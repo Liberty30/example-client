@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 6px;
+  padding: 0 65px;
 }
 
 .ConnectionsListProfiles__name {
@@ -21,24 +22,27 @@
 }
 
 .ConnectionsListProfiles__button[name="Unfollow"] {
+  border-color: $black;
+
   &:hover,
   &:active,
   &:focus {
     color: $black;
-    border-color: $green;
-    background-color: $light-gray;
+    border-color: $black;
+    background-color: $gray;
   }
 }
 
 .ConnectionsListProfiles__button[name="Follow"] {
   background-color: $black;
   color: $white;
+  border: none;
 
   &:hover,
   &:active,
   &:focus {
     color: $white;
-    border-color: $green;
+    border: none;
     background-color: $dark-gray;
   }
 }

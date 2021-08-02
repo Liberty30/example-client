@@ -2,14 +2,14 @@
 .ant-btn.Login__logOutButton {
   border-radius: 6px;
   padding: 0 30px;
-  background-color: $black;
+  background-color: $dark-gray;
   color: $white;
-  border-color: $black;
+  border-color: $dark-gray;
 
   &:hover, &:active, &:focus {
-    color: $green;
-    background-color: $black;
-    border-color: $green;
+    color: $dark-orange;
+    background-color: $dark-gray;
+    border-color: $dark-orange;
   }
 }
 
@@ -31,74 +31,6 @@
   padding: 0 10px;
 }
 
-.ant-btn.ConnectionsList__button {
-  border: solid $black;
-  background: $black;
-  color: $white;
-  border-width: 2px 2px 2px 1px;
-  border-radius: 0 8px 8px 0;
-  height: auto;
-
-  &:focus {
-    border-color: $black;
-    background: $black;
-    color: $white;
-  }
-
-  &:hover, &:active {
-    border-color: $black;
-    background: $white;
-    color: $black;
-  }
-}
-
-.ConnectionsList__buttonBlock .ant-btn:first-child {
-  border-radius: 8px 0 0 8px;
-  border-width: 2px 1px 2px 2px;
-}
-
-.ant-btn.ProfileBlock__editButton {
-  @include button($shadow-green, $green);
-  padding: 0 10px;
-  font-size: 12px;
-  height: 24px;
-}
-
-.ant-btn.ConnectionsList__button--active {
-  color: $black !important;
-  background: $white !important;
-}
-
-.ant-btn.Feed__newPostButton {
-  @include button($shadow-green, $green);
-}
-
-.ant-btn.NewPost__footerBtn {
-  @include button($shadow-green, $green);
-}
-
-.ant-input.NewPostImageUpload__urlInput {
-  margin: 0 10px;
-}
-
-.ant-btn.NewPostImageUpload__urlInputBtn {
-  @include button($gray, $light-gray);
-  height: inherit;
-}
-
-.ant-spin.NewPostImageUpload__spinner {
-  display: flex;
-  margin: 10px 10px 0 0;
-}
-
-.ant-alert.NewPostImageUpload__alert {
-  margin-top: 16px;
-}
-
-.anticon.NewPostImageUpload__imageDelete {
-  font-size: 20px;
-}
-
 .ant-input:focus,
 .ant-input:hover {
   border-color: $dark-gray !important;
@@ -109,7 +41,7 @@
 }
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: $shadow-green !important;
+  color: $dark-orange !important;
 }
 
 .ant-tabs-tab-btn:hover,
@@ -118,19 +50,19 @@
 .ant-tabs-tab-remove:focus,
 .ant-tabs-tab-btn:active,
 .ant-tabs-tab-remove:active {
-  color: $shadow-green !important;
+  color: $dark-orange !important;
 }
 
 .ant-tabs-ink-bar {
-  background: $shadow-green !important;
+  background: $dark-orange !important;
 }
 
 a {
-  color: $shadow-green !important;
+  color: $dark-orange !important;
 }
 
 .ant-card.Post__block {
-  margin: 8px 0;
+  margin: 24px 0;
   width: auto;
 }
 
@@ -138,24 +70,25 @@ a {
   margin-bottom: 0 !important;
 }
 
-.ant-input.ReplyInput__input {
-  border: none;
-}
-
-.ant-input.ReplyInput__input:focus {
-  box-shadow: none !important;
-}
-
 .slick-dots {
-  bottom: -6px !important;
-
+  position: relative !important;
+  padding: 10px 0 0 0 !important;
   &>* {
     height: 15px !important;
 
     button {
       height: 15px !important;
       border-radius: 8px !important;
-      background: $shadow-green !important;
+      border: none !important;
+      background: $dark-orange !important;
     }
   }
+}
+
+.slick-dots-bottom {
+  bottom: 0 !important;
+}
+
+.ant-card-body {
+  padding: 0 !important;
 }

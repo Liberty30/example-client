@@ -4,11 +4,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-bottom: 30px;
   max-height: 550px;
+  position: relative;
 }
 
 .PostMedia__img {
   width: 100%;
   height: 100%;
+  padding-bottom: 16px;
 }
