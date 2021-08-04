@@ -11,9 +11,6 @@ import { Store } from "./Storage";
 import {
   ActivityContentNote,
   ActivityContentProfile,
-  createHash,
-  createImageAttachment,
-  createImageLink,
   isActivityContentNote,
   isActivityContentProfile,
 } from "@dsnp/sdk/core/activityContent";
@@ -196,9 +193,9 @@ const dispatchFeedItem = (
 ) => {
   const decoder = new TextDecoder();
 
-  if (!content.published) throw new Error("published time is required");
+  if (!content.published) throw new Error("timestamp is required");
+  // new Date(content.published).getTime()
   const timestamp = Date.parse(content.published);
-
   dispatch(
     addFeedItem({
       fromAddress: decoder.decode((message.fromId as any) as Uint8Array),
