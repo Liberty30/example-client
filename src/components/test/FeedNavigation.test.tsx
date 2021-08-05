@@ -1,4 +1,4 @@
-import Feed from "../Feed";
+import FeedNavigation from "../FeedNavigation";
 import Post from "../Post";
 import { mount, shallow } from "enzyme";
 import { getPrefabProfile } from "../../test/testProfiles";
@@ -12,39 +12,29 @@ const graphs = getPreFabSocialGraph();
 const initialState = { user: { profile }, feed: { feed }, graphs: { graphs } };
 const store = createMockStore(initialState);
 
-describe("Feed", () => {
+enum FeedTypes {
+  FEED,
+  MY_POSTS,
+  ALL_POSTS,
+}
+
+describe("FeedNavigation", () => {
+  const component = mount(
+    componentWithStore(FeedNavigation, store, {
+      feedType: FeedTypes.ALL_POSTS,
+      setFeedType: jest.fn(),
+    })
+  );
+
   it("renders without crashing", () => {
     expect(() => {
-      shallow(componentWithStore(Feed, store));
+      shallow(componentWithStore(FeedNavigation, store));
     }).not.toThrow();
   });
 
-  it("does display new post button when logged in", () => {
-    const component = mount(componentWithStore(Feed, store));
-    expect(component.find(".Feed__newPostButton").length).not.toBe(0);
-  });
-
-  it("does not display new post button when not logged in", () => {
-    const initialState = {
-      user: { profile: undefined },
-      feed: { feed },
-      graphs: { graphs },
-    };
-    const store = createMockStore(initialState);
-    const component = mount(componentWithStore(Feed, store));
-    expect(component.find(".Feed__newPostButton").length).toBe(0);
-  });
-
-  it("opens new post modal onclick", () => {
-    const component = mount(componentWithStore(Feed, store));
-    component.find(".Feed__newPostButton").first().simulate("click");
-    expect(component.find("Modal")).toBeTruthy();
-  });
-
-  describe("Displays Correct Feed", () => {
-    it("Connections Feed", () => {
-      const component = mount(componentWithStore(Feed, store));
-      expect(component.find(Post).length).toEqual(3);
+  describe("Displays Correct FeedNavigation", () => {
+    it("Connections FeedNavigation", () => {
+      expect(component.find(Post).length).toEqual(0);
 
       const expectedFeedAddresses = [profile.socialAddress].concat(
         graphs.find((g) => g.socialAddress === profile.socialAddress)
@@ -55,29 +45,27 @@ describe("Feed", () => {
       });
     });
 
-    it("My Feed", () => {
-      const component = mount(componentWithStore(Feed, store));
+    it("My FeedNavigation", () => {
       const button = component.findWhere((node) => {
         return (
           node.hasClass("Feed__navigationItem") && node.text() === "My Posts"
         );
       });
       button.simulate("click");
-      expect(component.find(Post).length).toEqual(2);
+      expect(component.find(Post).length).toEqual(0);
       component.find(".ant-card-meta-title").forEach((address) => {
         expect(address.text()).toBe(profile.socialAddress);
       });
     });
 
     it("All Posts", () => {
-      const component = mount(componentWithStore(Feed, store));
       const button = component.findWhere((node) => {
         return (
           node.hasClass("Feed__navigationItem") && node.text() === "All Posts"
         );
       });
       button.simulate("click");
-      expect(component.find(Post).length).toEqual(4);
+      expect(component.find(Post).length).toEqual(0);
     });
   });
 });
