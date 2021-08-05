@@ -1,10 +1,12 @@
-import { ActivityContentNote, ActivityContentProfile } from "@dsnp/sdk/core/activityContent";
-
+import {
+  ActivityContentNote,
+  ActivityContentProfile,
+} from "@dsnp/sdk/core/activityContent";
 
 export type HexString = string;
 export type EncryptedString = string;
 export type URLString = string;
-// ### Feed Data Types ###
+// ### FeedNavigation Data Types ###
 
 // ## Profile ##
 export interface Profile extends ActivityContentProfile {
@@ -19,7 +21,7 @@ export type NoteAttachment = {
   url: URLString;
 };
 
-// ## Feed ##
+// ## FeedNavigation ##
 export interface FeedItem<T extends ActivityContent> {
   fromAddress: HexString;
   content: T;

@@ -1,12 +1,13 @@
+import React, { useState } from "react";
 import UserAvatar from "./UserAvatar";
 import ConnectionsList from "./ConnectionsList";
-import React from "react";
 import { useAppSelector } from "../redux/hooks";
 import * as types from "../utilities/types";
 import SettingsIcon from "../images/SettingsIcon.svg";
 import ArrowIcon from "../images/ArrowIcon.svg";
 
 const Profile = (): JSX.Element => {
+  const [showProfile, setShowProfile] = useState<boolean>(false);
   const profile: types.Profile | undefined = useAppSelector(
     (state) => state.user.profile
   );
@@ -14,16 +15,23 @@ const Profile = (): JSX.Element => {
   const handle = "Hans";
   const profileName = "lovetoeat";
 
-  const getClassName = (sectionName: string) => {
-    return `Profile__${sectionName}`;
-  };
   return (
-    <div className="Profile__block">
+    <div
+      className={`Profile__block ${showProfile && "Profile__block--showing"}`}
+    >
       <div className="Profile__headerBlock">
-        <img className="Profile__headerBackArrow" src={ArrowIcon} />
+        <div onClick={() => setShowProfile(!showProfile)}>
+          <img
+            className={`Profile__headerBackArrow ${
+              showProfile && "Profile__headerBackArrow--rotate"
+            }`}
+            src={ArrowIcon}
+            alt="arrow icon"
+          />
+        </div>
         <div>
           <label className="Profile__personalInfoLabel--white">HANDLE</label>
-          <div className={getClassName("handle")}>@{handle}</div>
+          <div className="Profile__handle">@{handle}</div>
         </div>
       </div>
 
@@ -35,10 +43,14 @@ const Profile = (): JSX.Element => {
           />
           <div className="Profile__personalInfo">
             <label className="Profile__personalInfoLabel">NAME</label>
-            <div className={getClassName("name")}>{profileName}</div>
+            <div className="Profile__name">{profileName}</div>
           </div>
         </div>
-        <img className="Profile__editButton" src={SettingsIcon} />
+        <img
+          className="Profile__editButton"
+          src={SettingsIcon}
+          alt="settings icon"
+        />
       </div>
       <ConnectionsList />
     </div>
