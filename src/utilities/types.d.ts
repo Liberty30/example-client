@@ -6,7 +6,7 @@ import {
 export type HexString = string;
 export type EncryptedString = string;
 export type URLString = string;
-// ### FeedNavigation Data Types ###
+// ### Feed Data Types ###
 
 // ## Profile ##
 export interface Profile extends ActivityContentProfile {
