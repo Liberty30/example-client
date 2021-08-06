@@ -18,7 +18,7 @@ const UserAvatar = ({
   avatarSize,
 }: UserAvatarProps): JSX.Element => {
   const identiconURL =
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Hans_Ulrich_Obrist_2017.jpg/440px-Hans_Ulrich_Obrist_2017.jpg";
+    "http://localhost:8080/440px-Hans_Ulrich_Obrist_2017.jpg";
   return (
     <Avatar
       alt={profileAddress || "anonymous"}
