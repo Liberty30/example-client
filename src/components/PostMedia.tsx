@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactPlayer from "react-player";
 import { Carousel } from "antd";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
@@ -29,8 +29,8 @@ const PostMedia = ({ attachment }: PostMediaProps): JSX.Element => {
               playsinline
               className="PostMedia__img"
               url={item.url[0].href}
-              width={670}
-              height={type === "video" ? 400 : 55}
+              width="100%"
+              height={type === "video" ? "100%" : 55}
               muted
             />
           )}
