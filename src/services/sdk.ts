@@ -163,6 +163,7 @@ const dispatchActivityContent = (
   activityContent: ActivityContentNote | ActivityContentProfile,
   blockNumber: number
 ) => {
+  console.log(activityContent.published);
   if (isActivityContentNote(activityContent)) {
     return dispatchFeedItem(
       dispatch,
@@ -193,10 +194,9 @@ const dispatchFeedItem = (
 ) => {
   const decoder = new TextDecoder();
 
-  const timestamp =
-    content.published && !isNaN(Date.parse(content.published))
-      ? Date.parse(content.published)
-      : Math.floor(Date.now() / 1000);
+  const timestamp = content.published
+    ? Date.parse(content.published)
+    : Math.floor(Date.now() / 1000);
 
   dispatch(
     addFeedItem({
@@ -243,14 +243,14 @@ const handleBatchAnnouncement = (dispatch: Dispatch) => (
         const url = decoder.decode((message.url as any) as Uint8Array);
         fetch(url)
           .then((res) => res.json())
-          .then((activityContent) =>
+          .then((activityContent) => {
             dispatchActivityContent(
               dispatch,
               message,
               activityContent,
               announcement.blockNumber
-            )
-          )
+            );
+          })
           .catch((err) => console.log(err));
       })
     )
