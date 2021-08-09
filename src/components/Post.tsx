@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "antd";
 import { FeedItem } from "../utilities/types";
 import UserAvatar from "./UserAvatar";
@@ -14,7 +14,6 @@ interface PostProps {
 }
 
 const Post = ({ feedItem }: PostProps): JSX.Element => {
-  const [showActionsBar, setShowActionsBar] = useState<boolean>(false);
   const noteContent = feedItem.content;
   const attachments =
     noteContent.attachment &&
@@ -23,13 +22,7 @@ const Post = ({ feedItem }: PostProps): JSX.Element => {
       : [noteContent.attachment]);
 
   return (
-    <Card
-      key={feedItem.hash}
-      className="Post__block"
-      bordered={false}
-      onMouseEnter={() => setShowActionsBar(!showActionsBar)}
-      onMouseLeave={() => setShowActionsBar(!showActionsBar)}
-    >
+    <Card key={feedItem.hash} className="Post__block" bordered={false}>
       <Card.Meta
         className="Post__header"
         avatar={
@@ -38,16 +31,16 @@ const Post = ({ feedItem }: PostProps): JSX.Element => {
             avatarSize={"medium"}
           />
         }
-        title={feedItem.fromAddress}
+        title={feedItem.fromAddress || "0x123"}
         description={
-          <div className="Post__description">{feedItem.fromAddress}</div>
+          <div className="Post__description">
+            @{feedItem.fromAddress || "handle"}
+          </div>
         }
       />
-      <div className="Post__mediaBlock">
-        <PostMedia attachment={attachments as ActivityContentImage[]} />
-        {showActionsBar && <ActionsBar timestamp={feedItem.timestamp} />}
-      </div>
+      <PostMedia attachment={attachments as ActivityContentImage[]} />
       <div className="Post__caption">
+        <ActionsBar timestamp={feedItem.timestamp} />
         <div>{noteContent.content}</div>
         <div className="Post__captionTags">
           {feedItem.tags && feedItem.tags[0]}

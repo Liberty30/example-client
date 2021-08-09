@@ -193,7 +193,10 @@ const dispatchFeedItem = (
 ) => {
   const decoder = new TextDecoder();
 
-  const timestamp = content.published ? Date.parse(content.published) : 0;
+  const timestamp =
+    content.published && !isNaN(Date.parse(content.published))
+      ? Date.parse(content.published)
+      : Math.floor(Date.now() / 1000);
 
   dispatch(
     addFeedItem({
