@@ -163,7 +163,6 @@ const dispatchActivityContent = (
   activityContent: ActivityContentNote | ActivityContentProfile,
   blockNumber: number
 ) => {
-  console.log(activityContent.published);
   if (isActivityContentNote(activityContent)) {
     return dispatchFeedItem(
       dispatch,
