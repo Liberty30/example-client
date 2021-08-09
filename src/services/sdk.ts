@@ -242,14 +242,14 @@ const handleBatchAnnouncement = (dispatch: Dispatch) => (
         const url = decoder.decode((message.url as any) as Uint8Array);
         fetch(url)
           .then((res) => res.json())
-          .then((activityContent) => {
+          .then((activityContent) =>
             dispatchActivityContent(
               dispatch,
               message,
               activityContent,
               announcement.blockNumber
-            );
-          })
+            )
+          )
           .catch((err) => console.log(err));
       })
     )
