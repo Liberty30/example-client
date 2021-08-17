@@ -2,6 +2,8 @@ import { setConfig, core, createRegistration } from "@dsnp/sdk";
 import { providers, Wallet } from "ethers";
 import fetch from "node-fetch";
 import web3 from "web3-utils";
+import { createReadStream } from "fs";
+import path from "path";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -42,6 +44,10 @@ const accounts = [
         "https://www.dietandi.com/wp-content/uploads/2011/11/Eating-Cereal.jpg"
       ),
     ],
+    tag: [
+      {name: "cereal"},
+      {name: "salad"},
+    ]
   },
   {
     address: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
@@ -53,7 +59,12 @@ const accounts = [
         "https://brooklynfarmgirl.com/wp-content/uploads/2015/06/Mexican-Taco-Salsa-Hot-Dog_12.jpg"
       ),
     ],
-    text: "Hot take: Hotdogs aren't a sandwich, they're a taco",
+    text: "Hot take: A hotdog's not a sandwich, it's a taco",
+    tag: [
+      {name: "#taco"},
+      {name: "#hotdogs"},
+      {name: "this is another hashtag"}
+    ]
   },
   {
     address: "0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc",
@@ -69,6 +80,7 @@ const accounts = [
       "Sometimes life is like this dark tunnel. You can’t always " +
       "see the light at the end of the tunnel, but if you just " +
       "keep moving, you will come to a better place.",
+    tag: {name: "a single tag"},
   },
   {
     address: "0x90f79bf6eb2c4f870365e785982e1f101e93b906",
@@ -81,6 +93,7 @@ const accounts = [
       ),
     ],
     text: "Сухие завтраки - это разновидность салата. Конец истории.",
+    tag: ["cereal","salad","cухие","салата"]
   },
   {
     address: "0x15d34aaf54267db7d7c367839aaf71a00a2c6a65",
@@ -91,6 +104,7 @@ const accounts = [
     ],
     text: "This Vimeo -- WAT. Amirite?",
     name: "Louis Bollen",
+    tag: [{name: "not foodblogger"},{name: "shouldn't appear"}]
   },
   {
     address: "0x9965507d1a55bcc2695c58ba16fb37d819b0a4dc",
@@ -99,6 +113,7 @@ const accounts = [
     name: "Anderson Penn",
     text:
       "My favorite sea shanty is 'Friggin in the Riggin'. I don't like attachments. That's why I don't have any.",
+    tag: {name: "another single tag"},
   },
   {
     address: "0x976ea74026e726554db657fa54763abd0c3a0aa9",
@@ -193,7 +208,13 @@ const accounts = [
         "https://image.shutterstock.com/image-photo/british-blue-kitten-very-beautiful-260nw-796071583.jpg"
       ),
     ],
-    text: "My favorite cartoon is Spongebob",
+    text: "I really love sushi!!",
+    tag: [
+      {name: "sushi"},
+      {name: "restaurant"},
+      {name: "sushipics"},
+      {name: ""}
+    ]
   },
   {
     address: "0xfabb0ac9d68b0b445fb7357272ff202c5651694a",
@@ -207,6 +228,7 @@ const accounts = [
     ],
     text:
       "The pizza shop down the street is giving out free donuts. Kinda sketchy",
+    tag: [{name: "pizza"},{name: "cucina"},{name: "Italian"},{name: "sketch"},{name: "restaurant"}]
   },
   {
     address: "0x1cbd3b2770909d4e10f157cabc84c7264073c9ec",
@@ -266,6 +288,7 @@ const accounts = [
       ),
     ],
     text: "My favorite cartoon is Spongebob",
+    tag: {name: "foodblogger"}
   },
   {
     address: "0xdd2fd4581271e230360230f9337d5c0430bf44c0",
@@ -293,6 +316,7 @@ const accounts = [
     ],
     text:
       "Darn it, Jim, I'm a family doctor, not a swearing doctor! For pity's sake Jim, this is prime time!",
+    tag: [{type: "Mention", name: "restaurant"}]
   },
 ];
 
@@ -411,6 +435,25 @@ const storeAnnouncement = async (content, accountId, signer) => {
   return { hash, announcement };
 };
 
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+const storeAvatar = async (handle) => {
+  await fetch(
+    `${process.env.REACT_APP_UPLOAD_HOST}/upload?filename=${handle + ".jpg"}`,
+    {
+      method: "POST",
+      body: createReadStream(`${__dirname}/avatars/${handle}.jpg`),
+    }
+  );
+  return core.activityContent.createImageLink(
+    `${process.env.REACT_APP_UPLOAD_HOST}/${handle}.jpg`,
+    "image/jpg",
+    [core.activityContent.createHash("0x123")],
+    { height: 72, width: 72 }
+  );
+};
+
+// register each account, and store store profile and note for them.
 for await (let account of accounts.values()) {
   console.log("Setting up account", account.address);
 
@@ -427,10 +470,15 @@ for await (let account of accounts.values()) {
   // register handle to get dsnp id
   account.id = await createRegistration(account.address, account.handle);
 
+  // store avatar
+  const avatar = await storeAvatar(account.handle);
+
   // create profile
   const profile = core.activityContent.createProfile({
     name: account.name,
+    icon: [avatar],
   });
+  profile.published = Date.now.toString(16);
 
   // create a note
   const content = core.activityContent.createNote(
@@ -438,6 +486,7 @@ for await (let account of accounts.values()) {
     { attachment: account.attachment }
   );
   content.published = new Date().toISOString();
+  if (account.tag) content.tag = account.tag
 
   const {
     hash: profileHash,
