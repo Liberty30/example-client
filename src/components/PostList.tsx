@@ -16,8 +16,10 @@ enum FeedTypes {
   ALL_POSTS,
 }
 
-const appDefaultTags = (process.env.APP_DEFAULT_TAGS || "foodee").split(",");
-
+const appDefaultTags = (process.env.APP_DEFAULT_TAGS || "restaurant").split(
+  ","
+);
+console.log("appDefaultTags: ", appDefaultTags);
 interface PostListProps {
   feedType: FeedTypes;
 }
@@ -49,8 +51,11 @@ const PostList = ({ feedType }: PostListProps): JSX.Element => {
   ): boolean => {
     if (!tagList) return false;
     if (Array.isArray(tagList)) {
-      console.log("taglist: ", tagList);
-      return tagList.some((tag) => checkTags(tag));
+      // return tagList.some((tag) => checkTags(tag));
+      for (const tag of tagList) {
+        if (checkTags(tag)) return true;
+      }
+      return false;
     } else return checkTags(tagList);
   };
 
@@ -63,10 +68,9 @@ const PostList = ({ feedType }: PostListProps): JSX.Element => {
       ? [feedItem.content.tag]
       : feedItem.content.tag;
 
-    const filtered = tagList.filter((t) => hasAppDefaultTag(t));
-    console.log("filtered: ", filtered);
-    const mapped = filtered.map((filteredTag) => filteredTag.name || "");
-    return mapped; // should never be blank
+    return tagList
+      .filter((tag) => tag?.name !== "")
+      .map((tag) => (tag?.name || "").replace("#", ""));
   };
 
   let currentFeed: FeedItem[] = [];
@@ -74,15 +78,13 @@ const PostList = ({ feedType }: PostListProps): JSX.Element => {
   if (feedType === FeedTypes.FEED) {
     const addrSet = userId ? { [userId]: true } : {};
     myGraph?.following.forEach((addr) => (addrSet[addr] = true));
-    currentFeed = feed.filter((post) => post?.fromId in addrSet);
     currentFeed = feed.filter((post) => {
-      return post?.fromAddress in addrSet || hasAppDefaultTag(post.content.tag);
+      post?.fromId in addrSet && hasAppDefaultTag(post.content.tag);
     });
   } else if (feedType === FeedTypes.MY_POSTS) {
     currentFeed = feed.filter((post) => userId === post?.fromId);
   } else {
-    // All Posts
-    currentFeed = feed;
+    currentFeed = feed.filter((post) => hasAppDefaultTag(post.content.tag));
   }
 
   currentFeed.sort(function (a, b) {
@@ -93,7 +95,7 @@ const PostList = ({ feedType }: PostListProps): JSX.Element => {
     .slice(0)
     .reverse()
     .map((post, index) => {
-      if (!post.fromAddress) throw new Error(`no fromAddress in post: ${post}`);
+      if (!post.fromId) throw new Error(`no fromId in post: ${{ post }}`);
 
       const namedPost: FeedItem = {
         ...post,
