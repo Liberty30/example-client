@@ -3,7 +3,6 @@ import Post from "./Post";
 import { FeedItem } from "../utilities/types";
 import { useAppSelector } from "../redux/hooks";
 import { DSNPUserId } from "@dsnp/sdk/dist/types/core/identifiers";
-import BlankPost from "./BlankPost";
 import {
   ActivityContentHashtag,
   ActivityContentMention,
@@ -34,10 +33,6 @@ const PostList = ({ feedType }: PostListProps): JSX.Element => {
   );
   const feed: FeedItem[] = useAppSelector((state) => state.feed.feed).filter(
     (post) => post?.content?.type === "Note" && post?.inReplyTo === undefined
-  );
-
-  const loading: boolean = useAppSelector(
-    (state) => state.feed.isPostLoading.loading
   );
 
   const isAHashTag = (
@@ -105,16 +100,13 @@ const PostList = ({ feedType }: PostListProps): JSX.Element => {
     });
 
   return (
-    <div className={"PostList__block"}>
-      {loading && <BlankPost />}
-      <Masonry
-        breakpointCols={3}
-        className="PostList__block"
-        columnClassName="PostList__blockColumn"
-      >
-        {items}
-      </Masonry>
-    </div>
+    <Masonry
+      breakpointCols={3}
+      className="PostList__block"
+      columnClassName="PostList__blockColumn"
+    >
+      {items}
+    </Masonry>
   );
 };
 export default PostList;
