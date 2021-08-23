@@ -6,13 +6,7 @@ const BlankPost = (): JSX.Element => {
   return (
     <Card className="BlankPost__block" bordered={false}>
       <Card.Meta
-        avatar={
-          <UserAvatar
-            icon={undefined}
-            profileAddress={undefined}
-            avatarSize={"medium"}
-          />
-        }
+        avatar={<UserAvatar profileAddress={undefined} avatarSize={"medium"} />}
         title={<div className="BlankPost__title"> </div>}
         description={<div className="BlankPost__description"> </div>}
       />

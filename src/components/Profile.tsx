@@ -57,54 +57,6 @@ const Profile = (): JSX.Element => {
               {profileName || userId || "Anonymous"}
             </div>
           </div>
-          {isEditing ? (
-            <>
-              <Button
-                className="ProfileBlock__editButton"
-                onClick={() => saveEditProfile()}
-                disabled={!didEditProfile}
-              >
-                save
-              </Button>
-              <Button
-                className="ProfileBlock__editButton"
-                onClick={() => cancelEditProfile()}
-              >
-                cancel
-              </Button>
-            </>
-          ) : (
-            <Button
-              className="ProfileBlock__editButton"
-              onClick={() => setIsEditing(!isEditing)}
-            >
-              edit
-            </Button>
-          )}
-        </div>
-        <div className="ProfileBlock__personalInfo">
-          <label className="ProfileBlock__personalInfoLabel">NAME</label>
-          <input
-            className={getClassName("name")}
-            value={newName || newName === "" ? newName : profileName}
-            onChange={(e) => setNewName(e.target.value)}
-            disabled={!isEditing}
-          />
-          <label className="ProfileBlock__personalInfoLabel">HANDLE</label>
-          <input
-            className="ProfileBlock__handle"
-            value={newHandle || newHandle === "" ? newHandle : handle}
-            onChange={(e) => setNewHandle(e.target.value)}
-            disabled={true}
-          />
-          <label className="ProfileBlock__personalInfoLabel">
-            SOCIAL ADDRESS
-          </label>
-          <input
-            className="ProfileBlock__dsnpUserId"
-            value={userId || "Anonymous"}
-            disabled={true}
-          />
         </div>
         <img
           className="Profile__editButton"
