@@ -23,6 +23,7 @@ const UserAvatar = ({
   const identiconURL = avatarUrl
     ? avatarUrl
     : blockies.create({ seed: profileAddress }).toDataURL();
+
   return (
     <Avatar
       className="UserAvatar"

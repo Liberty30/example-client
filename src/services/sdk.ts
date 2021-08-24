@@ -193,7 +193,7 @@ const dispatchActivityContent = (
       activityContent as ActivityContentNote,
       blockNumber
     );
-  } else if (isActivityContentProfileType(activityContent)) {
+  } else if (activityContent.type === "Profile") {
     return dispatchProfile(
       dispatch,
       message,
@@ -237,7 +237,6 @@ const dispatchProfile = (
   batchIndex: number
 ) => {
   const decoder = new TextDecoder();
-
   dispatch(
     upsertProfile({
       ...profile,

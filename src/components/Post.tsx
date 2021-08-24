@@ -19,17 +19,22 @@ const Post = ({ feedItem }: PostProps): JSX.Element => {
   const profiles: Record<DSNPUserId, Profile> = useAppSelector(
     (state) => state.profiles?.profiles || {}
   );
+
   return (
     <Card key={feedItem.hash} className="Post__block" bordered={false}>
       <Card.Meta
         className="Post__header"
         avatar={
-          <UserAvatar profileAddress={feedItem.fromId} avatarSize={"medium"} />
+          <UserAvatar
+            profileAddress={feedItem.fromId}
+            avatarSize={"medium"}
+            avatarUrl={profiles[feedItem.fromId]?.icon?.[0]?.href}
+          />
         }
-        title={profiles[feedItem.fromId].name || feedItem.fromId}
+        title={`@${profiles[feedItem.fromId].handle}`}
         description={
           <div className="Post__description">
-            @{profiles[feedItem.fromId].handle}
+            {profiles[feedItem.fromId].name || feedItem.fromId}
           </div>
         }
       />
@@ -38,7 +43,10 @@ const Post = ({ feedItem }: PostProps): JSX.Element => {
         <ActionsBar published={feedItem.published} />
         <div>{noteContent.content}</div>
         <div className="Post__captionTags">
-          {feedItem.tags && feedItem.tags.join(" ")}
+          {feedItem.tags &&
+            feedItem.tags.map((tag: string) => (
+              <div className="Post__captionTag">{tag}</div>
+            ))}
         </div>
       </div>
     </Card>

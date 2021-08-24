@@ -1,17 +1,14 @@
 import React from "react";
-import { Badge, Button, Dropdown } from "antd";
-import { WalletOutlined } from "@ant-design/icons";
+import { Button, Dropdown } from "antd";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { userLogout, userUpdateId } from "../redux/slices/userSlice";
 import { core } from "@dsnp/sdk";
-import { DSNPUserId } from "@dsnp/sdk/dist/types/core/identifiers";
 import { Registration } from "@dsnp/sdk/core/contracts/registry";
 import * as sdk from "../services/sdk";
 import * as wallet from "../services/wallets/wallet";
 import * as session from "../services/session";
 import LoginButton from "./LoginButton";
 import RegistrationModal from "./RegistrationModal";
-import * as types from "../utilities/types";
 import UserAvatar from "./UserAvatar";
 
 interface LoginProps {
@@ -61,14 +58,10 @@ const Login = ({ loginWalletOptions }: LoginProps): JSX.Element => {
     }
   };
 
-  const profiles: Record<DSNPUserId, types.Profile> = useAppSelector(
-    (state) => state.profiles?.profiles || {}
-  );
-
-  const handle = userId && profiles[userId]?.handle;
-  const profileName = (userId && profiles[userId]?.name) || userId;
+  const handle = "neverenough";
+  const profileName = "Bob";
   const avatar =
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Hans_Ulrich_Obrist_2017.jpg/440px-Hans_Ulrich_Obrist_2017.jpg";
+    "https://i.pinimg.com/564x/c7/45/de/c745deb0177e4584d2d6e1ff11ae8c7c.jpg";
 
   const logout = () => {
     session.clearSession();
@@ -102,16 +95,6 @@ const Login = ({ loginWalletOptions }: LoginProps): JSX.Element => {
           <Dropdown
             overlay={
               <>
-                <Badge
-                  count={<WalletOutlined style={{ color: "#52C41A" }} />}
-                  offset={[-48, 8]}
-                >
-                  <img
-                    className="Login__walletIcon"
-                    src={wallet.wallet(currentWalletType).icon}
-                    alt="Wallet Symbol"
-                  />
-                </Badge>
                 <Button
                   className="Login__logOutButton"
                   aria-label="Logout"
