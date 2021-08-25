@@ -9,7 +9,6 @@ import {
   ActivityContentTag,
 } from "@dsnp/sdk/core/activityContent";
 import Masonry from "react-masonry-css";
-import * as zlib from "zlib";
 
 enum FeedTypes {
   MY_FEED,
