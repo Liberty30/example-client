@@ -230,8 +230,7 @@ const accounts = [
         "https://libertypostsorg.s3.us-east-2.amazonaws.com/c6a533f1-542a-4998-ab77-12c10bd98368.jpg"
       ),
     ],
-    text:
-      "Let's get sushi, just for the halibut! 😆",
+    text: "Let's get sushi, just for the halibut! 😆",
     tag: [
       { name: "#sushilovers" },
       { name: "#sushipics" },
