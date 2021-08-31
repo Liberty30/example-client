@@ -25,3 +25,13 @@
 .Post__captionTags {
   font-size: 22px;
 }
+
+.Post__captionTag {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 12px;
+
+  &:hover {
+    color: $dark-orange;
+  }
+}

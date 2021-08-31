@@ -5,7 +5,6 @@ import { useAppSelector } from "../redux/hooks";
 import { DSNPUserId } from "@dsnp/sdk/dist/types/core/identifiers";
 import SettingsIcon from "../images/SettingsIcon.svg";
 import ArrowIcon from "../images/ArrowIcon.svg";
-import * as types from "../utilities/types";
 
 const Profile = (): JSX.Element => {
   const [showProfile, setShowProfile] = useState<boolean>(false);
@@ -13,14 +12,10 @@ const Profile = (): JSX.Element => {
     (state) => state.user.id
   );
 
-  const profiles: Record<DSNPUserId, types.Profile> = useAppSelector(
-    (state) => state.profiles?.profiles || {}
-  );
-
-  const handle = userId && profiles[userId]?.handle;
-  const profileName = userId && profiles[userId]?.name;
+  const handle = "neverenough";
+  const profileName = "Bob";
   const avatar =
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Hans_Ulrich_Obrist_2017.jpg/440px-Hans_Ulrich_Obrist_2017.jpg";
+    "https://i.pinimg.com/564x/c7/45/de/c745deb0177e4584d2d6e1ff11ae8c7c.jpg";
 
   return (
     <div
